@@ -27,7 +27,7 @@ public class GradeCalculator {
                 return;
             }
 
-            if (grade < 0 || grade > 100) {
+            if (grade < 1 || grade > 100) {
                 System.out.println("Grades can only range from 1 to 100.");
                 return;
             }
@@ -43,13 +43,13 @@ public class GradeCalculator {
 
         double average = (double) sum / size;
         String convertedGrade = "";
-        if (average > 89) {
+        if (average >= 90) {
             convertedGrade = "A";
-        } else if (average > 79) {
+        } else if (average >= 80) {
             convertedGrade = "B";
-        } else if (average > 69) {
+        } else if (average >= 70) {
             convertedGrade = "C";
-        } else if (average > 59) {
+        } else if (average >= 60) {
             convertedGrade = "D";
         } else {
             convertedGrade = "F";
@@ -58,7 +58,7 @@ public class GradeCalculator {
         System.out.println();
         System.out.println("--- Results ---");
         System.out.println("Total grades entered: " + size);
-        System.out.println("Average: " + average);
+        System.out.println("Average: " + String.format("%.2f", average));
         System.out.println("Letter Grade: " + convertedGrade);
     }
 }
