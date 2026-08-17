@@ -16,34 +16,49 @@ public class TemperatureConverter {
 
         System.out.println();
         System.out.print("Enter your choice: ");
-        int choice = Integer.valueOf(scan.nextLine());
+
+        int choice;
+        try {
+            choice = Integer.valueOf(scan.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid choice. Select only from 1-6.");
+            return;
+        }
         System.out.print("Enter temperature: ");
-        double temperature = Double.valueOf(scan.nextLine());
+
+        double temperature;
+        
+        try {
+            temperature = Double.valueOf(scan.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid temperature. Please enter a number.");
+            return;
+        }
         double converted = 0.0;
         System.out.println();
 
         if (choice == 1) {
-            converted = (temperature * 9/5) + 32;
+            converted = (temperature * 9.0/5.0) + 32;
             System.out.println(temperature + "°C = " + converted + "°F");
         } else if (choice == 2) {
-            converted = (temperature - 32) * 5/9;
+            converted = (temperature - 32) * 5.0/9.0;
             System.out.println(temperature + "°F = " + converted + "°C");
         } else if (choice == 3) {
             converted = temperature + 273.15;
             System.out.println(temperature + "°C = " + converted + " K");
         } else if  (choice == 4) {
-            if (temperature > 0) {
+            if (temperature >= 0) {
                 converted = temperature - 273.15;
                 System.out.println(temperature + " K = " + converted + "°C");
             } else {
                 System.out.println("Kelvin cannot be lower than zero.");
             }
         } else if (choice == 5) {
-            converted = (temperature - 32) * 5/9 + 273.15;
+            converted = (temperature - 32) * 5.0/9.0 + 273.15;
             System.out.println(temperature + "°F = " + converted + " K");
         } else if (choice == 6) {
-            if (temperature > 0) {
-                converted = (temperature - 273.15) * 9/5 + 32;
+            if (temperature >= 0) {
+                converted = (temperature - 273.15) * 9.0/5.0 + 32;
                 System.out.println(temperature + " K= " + converted + "°F");
             } else {
                 System.out.println("Kelvin cannot be lower than zero.");
