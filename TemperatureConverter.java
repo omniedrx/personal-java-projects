@@ -32,16 +32,24 @@ public class TemperatureConverter {
             converted = temperature + 273.15;
             System.out.println(temperature + "°C = " + converted + " K");
         } else if  (choice == 4) {
-            converted = temperature - 273.15;
-            System.out.println(temperature + " K = " + converted + "°C");
+            if (temperature > 0) {
+                converted = temperature - 273.15;
+                System.out.println(temperature + " K = " + converted + "°C");
+            } else {
+                System.out.println("Kelvin cannot be lower than zero.");
+            }
         } else if (choice == 5) {
             converted = (temperature - 32) * 5/9 + 273.15;
             System.out.println(temperature + "°F = " + converted + " K");
         } else if (choice == 6) {
-            converted = (temperature - 273.15) * 9/5 + 32;
-            System.out.println(temperature + " K= " + converted + "°F");
+            if (temperature > 0) {
+                converted = (temperature - 273.15) * 9/5 + 32;
+                System.out.println(temperature + " K= " + converted + "°F");
+            } else {
+                System.out.println("Kelvin cannot be lower than zero.");
+            }
         } else  {
-            System.out.println("Invalid number");
+            System.out.println("Invalid choice. Please select from 1-6");
         }
     }
 }
