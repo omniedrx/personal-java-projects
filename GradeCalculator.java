@@ -43,14 +43,30 @@ public class GradeCalculator {
 
         double average = (double) sum / size;
         String convertedGrade = "";
-        if (average >= 90) {
+        if (average >= 97) {
+            convertedGrade = "A+";
+        } else if (average >= 93) {
             convertedGrade = "A";
-        } else if (average >= 80) {
+        } else if (average >= 90) {
+            convertedGrade = "A-";
+        } else if (average >= 87) {
+            convertedGrade = "B+";
+        } else if (average >= 83) {
             convertedGrade = "B";
-        } else if (average >= 70) {
+        } else if (average >= 80) {
+            convertedGrade = "B-";
+        } else if (average >= 77) {
+            convertedGrade = "C+";
+        } else if (average >= 73) {
             convertedGrade = "C";
-        } else if (average >= 60) {
+        } else if (average >= 70) {
+            convertedGrade = "C-";
+        } else if (average >= 67) {
+            convertedGrade = "D+";
+        } else if (average >= 63) {
             convertedGrade = "D";
+        } else if (average >= 60) {
+            convertedGrade = "D-";
         } else {
             convertedGrade = "F";
         }
