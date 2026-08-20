@@ -1,3 +1,4 @@
+package Grade_Calculator;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class GradeCalculator {
