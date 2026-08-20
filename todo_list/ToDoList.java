@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ToDoList {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        ArrayList<String> tasks = new ArrayList<String>();
+        ArrayList<Task> tasks = new ArrayList<Task>();
 
         while (true) {
             System.out.println("=== TO-DO LIST ===");
@@ -35,7 +35,7 @@ public class ToDoList {
                 System.out.println();
                 System.out.print("Enter task: ");
                 String task = input.nextLine();
-                tasks.add(task);
+                tasks.add(new Task(task));
                 System.out.println("Task added!");
                 System.out.println();
             } 
@@ -44,7 +44,7 @@ public class ToDoList {
                 System.out.println();
                 System.out.println("Your tasks:");
                 int i = 1;
-                for (String task: tasks) {
+                for (Task task: tasks) {
                     System.out.println(i + ". " + task);
                     i++;
                 }
@@ -55,18 +55,26 @@ public class ToDoList {
                 System.out.println();
                 System.out.println("Your tasks:");
                 int i = 1;
-                for (String task: tasks) {
+                for (Task task: tasks) {
                     System.out.println(i + ". " + task);
                     i++;
                 }
                 System.out.print("Which task number is complete? ");
-                int number; 
+                int index; 
                 try {
-                    number = Integer.valueOf(input.nextLine());
+                    index = Integer.valueOf(input.nextLine());
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input.");
                     continue;
                 }
+
+                index -= 1;
+                if (index < 0 || index >= tasks.size()) {
+                    System.out.println("Invalid input. It can't be less/higher than the amount of tasks.");
+                    continue;
+                }
+
+                tasks.get(index).markComplete();
 
                 System.out.println("Task marked as complete.");
                 System.out.println();
