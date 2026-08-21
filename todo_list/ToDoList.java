@@ -42,6 +42,11 @@ public class ToDoList {
             
             if (choice == 2) {
                 System.out.println();
+                if (tasks.isEmpty()) {
+                    System.out.println("No tasks yet.");
+                    System.out.println();
+                    continue;
+                }
                 System.out.println("Your tasks:");
                 int i = 1;
                 for (Task task: tasks) {
@@ -53,6 +58,11 @@ public class ToDoList {
 
             if (choice == 3) {
                 System.out.println();
+                if (tasks.isEmpty()) {
+                    System.out.println("No tasks yet.");
+                    System.out.println();
+                    continue;
+                }
                 System.out.println("Your tasks:");
                 int i = 1;
                 for (Task task: tasks) {
@@ -77,6 +87,40 @@ public class ToDoList {
                 tasks.get(index).markComplete();
 
                 System.out.println("Task marked as complete.");
+                System.out.println();
+            }
+
+            if (choice == 4) {
+                System.out.println();
+                if (tasks.isEmpty()) {
+                    System.out.println("No tasks yet.");
+                    System.out.println();
+                    continue;
+                }
+                System.out.println("Your tasks:");
+                int i = 1;
+                for (Task task: tasks) {
+                    System.out.println(i + ". " + task);
+                    i++;
+                }
+                System.out.print("Which task number to remove? ");
+                int index; 
+                try {
+                    index = Integer.valueOf(input.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input.");
+                    continue;
+                }
+
+                index -= 1;
+                if (index < 0 || index >= tasks.size()) {
+                    System.out.println("Invalid input. It can't be less/higher than the amount of tasks.");
+                    continue;
+                }
+
+                tasks.remove(index);
+
+                System.out.println("Task removed.");
                 System.out.println();
             }
         }
