@@ -17,6 +17,13 @@ public class Account {
         }
     }
 
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient funds");
+        }
+        this.balance -= amount;
+    }
+
     public double getBalance() {
         return balance;
     } 
