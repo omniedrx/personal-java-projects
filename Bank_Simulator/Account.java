@@ -28,5 +28,11 @@ public class Account {
         return balance;
     } 
 
-    
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
 }
