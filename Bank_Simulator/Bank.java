@@ -15,7 +15,7 @@ public class Bank {
 
     public Account findAccount(int accountNumber) {
         for (Account account: accounts) {
-            if (account.getBalance() == accountNumber) {
+            if (account.getAccountNumber() == accountNumber) {
                 return account;
             }
         }
