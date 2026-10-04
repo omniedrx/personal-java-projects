@@ -19,7 +19,7 @@ public class Main {
             System.out.println();
 
             if (choice < 1 || choice > 5) {
-                System.out.println("Choose only from 1 - 4");
+                System.out.println("Choose only from 1 - 5");
                 continue;
             }
 
@@ -40,9 +40,7 @@ public class Main {
             }
 
             if (choice == 2) {
-                System.out.print("Enter account number: ");
-                int number = Integer.valueOf(input.nextLine());
-                Account account = bank.findAccount(number);
+                Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
                     System.out.print("Account not found");
@@ -55,9 +53,7 @@ public class Main {
             }
 
             if (choice == 3) {
-                System.out.print("Enter account number: ");
-                int number = Integer.valueOf(input.nextLine());
-                Account account = bank.findAccount(number);
+                Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
                     System.out.print("Account not found");
@@ -76,9 +72,7 @@ public class Main {
             }
 
             if (choice == 4) {
-                System.out.print("Enter account number: ");
-                int number = Integer.valueOf(input.nextLine());
-                Account account = bank.findAccount(number);
+                Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
                     System.out.print("Account not found");
@@ -88,5 +82,13 @@ public class Main {
                 System.out.println("Name: " + account.getOwnerName() + ", Current balance: " + account.getBalance());
             }
         }
+    input.close();
+    }
+
+    private static Account getAccountFromInput(Scanner input, Bank bank) {
+        System.out.print("Enter account number: ");
+        int number = Integer.valueOf(input.nextLine());
+        Account account = bank.findAccount(number);
+        return account;
     }
 }
