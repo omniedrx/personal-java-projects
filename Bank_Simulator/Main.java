@@ -13,17 +13,18 @@ public class Main {
             System.out.println("2. Deposit");
             System.out.println("3. Withdraw");
             System.out.println("4. Check balance");
-            System.out.println("5. Exit");
+            System.out.println("5. Transfer");
+            System.out.println("6. Exit");
             System.out.print("Choose: ");
             int choice = Integer.valueOf(input.nextLine());
             System.out.println();
 
-            if (choice < 1 || choice > 5) {
+            if (choice < 1 || choice > 6) {
                 System.out.println("Choose only from 1 - 5");
                 continue;
             }
 
-            if (choice == 5) {
+            if (choice == 6) {
                 break;
             }
 
@@ -43,7 +44,7 @@ public class Main {
                 Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
-                    System.out.print("Account not found");
+                    System.out.println("Account not found");
                     continue;
                 }
 
@@ -56,7 +57,7 @@ public class Main {
                 Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
-                    System.out.print("Account not found");
+                    System.out.println("Account not found");
                     continue;
                 }
 
@@ -75,11 +76,22 @@ public class Main {
                 Account account = getAccountFromInput(input, bank);
 
                 if (account == null) {
-                    System.out.print("Account not found");
+                    System.out.println("Account not found");
                     continue;
                 }
 
                 System.out.println("Name: " + account.getOwnerName() + ", Current balance: " + account.getBalance());
+            }
+
+            if (choice == 5) {
+                System.out.print("Withdraw from (enter acc number): ");
+                int withdraw = Integer.valueOf(input.nextLine());
+                System.out.print("Enter amount: ");
+                double amount = Double.valueOf(input.nextLine());
+                System.out.print("Deposit to (enter acc number): ");
+                int deposit = Integer.valueOf(input.nextLine());
+
+                bank.transfer(withdraw, deposit, amount);
             }
         }
     input.close();

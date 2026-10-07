@@ -21,4 +21,13 @@ public class Bank {
         }
         return null;
     }
+
+    public void transfer(int fromAccountNumber, int toAccountNumber, double amount) {
+        try {
+            findAccount(fromAccountNumber).withdraw(amount);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        findAccount(toAccountNumber).deposit(amount);
+    }
 }
