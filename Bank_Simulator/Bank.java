@@ -1,4 +1,4 @@
-package Bank_Simulator;
+
 import java.util.ArrayList;
 
 public class Bank {

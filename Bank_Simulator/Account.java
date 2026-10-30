@@ -1,5 +1,3 @@
-package Bank_Simulator;
-
 public class Account {
     private int accountNumber;
     private String ownerName;

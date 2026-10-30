@@ -1,4 +1,3 @@
-package Bank_Simulator;
 import java.util.Scanner;
 
 public class Main {
