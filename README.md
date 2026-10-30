@@ -9,6 +9,7 @@ This repository contains the Java projects that I've made while learning about p
 - Grade Calculator
 - To-Do List
 - Bank Account Simulator
+- Simple Shopping List
 
 ## About
 I'm currently learning Java as my programming language to practice programming fundamentals, my problem solving, and the object-oriented programming. The main reason I'm learning Java was because this is the programming language that I will mainly use in college as a freshman.
