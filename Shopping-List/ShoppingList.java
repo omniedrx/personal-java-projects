@@ -6,9 +6,10 @@ public class ShoppingList {
         ArrayList <String> items = new ArrayList<>();
 
         int choice;
+        int numOption;
 
         while (true) {
-            System.out.println("===== Shopping List =====");
+            System.out.println("===== SHOPPING LIST =====");
             System.out.println("1. Add item");
             System.out.println("2. Remove item");
             System.out.println("3. View current items");
@@ -37,11 +38,35 @@ public class ShoppingList {
             }
 
             if (choice == 2) {
-                
+                getItems(items);
+                System.out.print("Remove item: ");
+                numOption = input.nextInt();
+                items.remove(numOption - 1);
+                System.out.println();
+                System.out.println("Item removed.");
+            }
+
+            if (choice == 3) {
+                getItems(items);
             }
 
             System.out.println();
         }
+
+        System.out.println("===== YOUR SHOPPING LIST TODAY =====");
+        getItems(items);
+
         input.close();
+    }
+
+    static void getItems(ArrayList<String> items)  {
+        System.out.println("Current items in the list: ");
+        System.out.println();
+        int numItem = 1;
+        for (String item: items) {
+            System.out.println(numItem + ". " + item);
+            numItem++;
+        }
+        System.out.println();
     }
 }
