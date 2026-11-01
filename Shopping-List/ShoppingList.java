@@ -6,7 +6,7 @@ public class ShoppingList {
         ArrayList <String> items = new ArrayList<>();
 
         int choice;
-        int numOption;
+        int removeItem;
 
         while (true) {
             System.out.println("===== SHOPPING LIST =====");
@@ -22,7 +22,8 @@ public class ShoppingList {
             System.out.println();
 
             if (choice < 1 || choice > 4) {
-                System.out.println("Invalid choice.");
+                System.out.println("Invalid choice. Choose only from option 1 - 4.");
+                System.out.println();
                 continue;
             }
 
@@ -33,40 +34,70 @@ public class ShoppingList {
             if (choice == 1) {
                 System.out.print("Add item to list: ");
                 String item = input.nextLine();
+
+                if (item.equals("")) {
+                    System.out.println("Your input is empty!");
+                    System.out.println();
+                    continue;
+                }
                 items.add(item);
                 System.out.println("Item added!");
             }
 
             if (choice == 2) {
+                if (items.size() <= 0) {
+                    System.out.println("You have not listed any items yet.");
+                    System.out.println();
+                    continue;
+                }
+
+                System.out.println("Current items in the list: ");
+                System.out.println();
                 getItems(items);
                 System.out.print("Remove item: ");
-                numOption = input.nextInt();
-                items.remove(numOption - 1);
+                removeItem = input.nextInt();
+
+                if (removeItem < items.size() || removeItem > items.size()) {
+                    System.out.println("Invalid input. Choose only from the current number of items in the list.");
+                    System.out.println();
+                    continue;
+                }
+
+                items.remove(removeItem - 1);
                 System.out.println();
                 System.out.println("Item removed.");
             }
 
             if (choice == 3) {
+                if (items.size() <= 0) {
+                    System.out.println("You have not listed any items yet.");
+                    System.out.println();
+                    continue;
+                }
+
+                System.out.println("Current items in the list: ");
+                System.out.println();
                 getItems(items);
             }
 
             System.out.println();
         }
 
-        System.out.println("===== YOUR SHOPPING LIST TODAY =====");
-        getItems(items);
+        if (items.size() <= 0) {
+            System.out.println("Your shopping list is empty!");
+        } else {
+            System.out.println("===== YOUR SHOPPING LIST TODAY =====");
+            getItems(items);
+        }
 
         input.close();
     }
 
     static void getItems(ArrayList<String> items)  {
-        System.out.println("Current items in the list: ");
-        System.out.println();
         int numItem = 1;
         for (String item: items) {
             System.out.println(numItem + ". " + item);
             numItem++;
         }
-        System.out.println();
     }
 }
