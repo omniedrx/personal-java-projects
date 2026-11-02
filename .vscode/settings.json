@@ -7,7 +7,8 @@
         "todo_list",
         "Bank_Simulator",
         "Calculator",
-        "Shopping-List"
+        "Shopping-List",
+        "Movie-Watchlist"
     ],
     "java.project.referencedLibraries": []
 }
