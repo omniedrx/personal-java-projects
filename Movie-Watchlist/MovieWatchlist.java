@@ -2,6 +2,7 @@ import java.util.*;
 public class MovieWatchlist {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        ArrayList <Movie> movies = new ArrayList<>();
 
         int option;
 
@@ -29,9 +30,15 @@ public class MovieWatchlist {
             if (option == 1) {
                 System.out.print("Enter movie title: ");
                 String title = input.nextLine();
+                movies.add(new Movie(title));
+                System.out.println('"' + title + '"' + " has been added to your watchlist.");
             }
 
             System.out.println();
+        }
+        
+        for (Movie movie: movies) {
+            System.out.println(movie.getTitle());
         }
     }
 }
