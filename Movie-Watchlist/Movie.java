@@ -7,11 +7,15 @@ public class Movie {
         this.watched = false;
     }
 
-    public void hasWatched(String title) {
-        
+    public void markAsWatched() {
+        this.watched = true;
     }
 
     public String getTitle() {
-        return this.title;
+        return title;
+    }
+
+    public boolean isWatched() {
+        return watched;
     }
 }
